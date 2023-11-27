@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobbies</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!--https://www.youtube.com/watch?v=ZjrqnxDEkzA-->
+<style>
+    section{
+        padding:20px;
+        width:1280px;
+        margin:40px auto;
+    }
+    section ul{
+        display: flex;
+        margin-bottom: 10px;
+    }
+    section ul li{
+        list-style: none;
+        background: #eee;
+        padding: 8px 20px;
+        margin: 5px;
+        cursor: pointer;
+    }
+    section ul li.active{
+        background:#03a9f4
+    }
+    .gallery{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .gallery .photo{
+        position:relative;
+        width: 300px;
+        height: 300px;
+        margin: 5px;
+    }
+    .gallery .photo img{
+        position: absolute;
+        top:0;
+        left: 0;
+        width:250px;
+        height: auto;
+        object-fit: cover;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.list').click(function(){
+            const value=$(this).attr('data-filter');
+            if (value=='all'){
+                $('.photo').show('1000');
+            }
+            else{
+                $('.photo').not('.'+value).hide('1000');
+                $('.photo').filter('.'+value).show('1000');
+            }
+        });
+        $('.list').click(function(){
+            $(this).addClass('active').siblings().removeClass('active');
+        });
+    })
+</script>
+</head>
+
+<body>
+    <div class="w3-bar">
+        <a style="width: 33.33%" class="w3-bar-item w3-button w3-mobile" href="index.html">Home</a>
+        <a style="width: 33.33%" class="w3-bar-item w3-button w3-mobile w3-blue" href="#">Interest</a>
+        <a style="width: 33.33%" class="w3-bar-item w3-button w3-mobile" href="experience.html">Experience</a>
+    </div>
+    <div class="w3-container w3-padding-64 w3-margin-left w3-margin-right">
+        <div>
+            <h4>Hobbies/Interest:</h4>
+            <ul>
+                <li>Reading Web Novels & Manga/Manhwa/Manhua</li>
+                <li>Learning New Languages</li>
+                <li>Experiencing New Things</li>
+            </ul>
+        </div>
+        <section>
+            <ul>
+                <li class="list active" data-filter="all">All</li>
+                <li class="list" data-filter="hummingbird_crew">Humming Bird Crew</li>
+                <li class="list" data-filter="competition">Competition</li>
+            </ul>
+            <div class="gallery">
+                <div class="photo hummingbird_crew"><img src="crew.jpg" alt="Crew Members"></div>
+                <div class="photo hummingbird_crew"><img src="crew1.jpg" alt="Logo"></div>
+                <div class="photo hummingbird_crew"><img src="crew2.jpg" alt="Crew Members"></div>
+                <div class="photo competition"><img src="comp.jpg" alt="Competition"></div>
+                <div class="photo competition"><img src="comp1.jpg" alt="Competition"></div>
+                <div class="photo competition"><img src="comp2.jpg" alt="Competition"></div>
+                <div class="photo competition"><img src="comp3.webp" alt="Competition"></div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education & Skills</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>  
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
+    <style>
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+        
+        .active, .accordion:hover {
+            background-color: #ccc; 
+        }
+        
+        .panel {
+            padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+        }
+    </style>
+    <!--https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_accordion-->
+    <script>
+        $(document).ready(function () {
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                panel.style.display = "none";
+                } else {
+                panel.style.display = "block";
+                }
+            });
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="w3-bar">
+        <a style="width: 33.33%" class="w3-bar-item w3-button w3-mobile" href="index.html">Home</a>
+        <a style="width: 33.33%" class="w3-bar-item w3-button w3-mobile" href="interest.html">Interest</a>
+        <a style="width: 33.33%" class="w3-bar-item w3-button w3-mobile w3-blue" href="#">Experience</a>
+    </div>
+    <div class="w3-container w3-padding-64 w3-margin-left w3-margin-right">
+        <fieldset>
+            <legend>Programming Skills</legend>
+            <div>
+                <input type="checkbox" id="python" name="skill" checked/>
+                <label for="python">Python</label>
+            </div>
+            <div>
+                <input type="checkbox" id="other" name="skill"/>
+                <label for="other">Other</label>
+            </div>
+        </fieldset><br>
+        <div class="w3-container">
+            <h4>Education</h4>
+            <ol>
+                <li>Secondary School: <a href="http://www.ligeracademy.org/">Liger Leadership Academy (LLA)</a></li>
+                <li>University: <a href="https://international.binus.ac.id/">BINUS International</a></li>
+            </ol>
+        </div>
+        <div class="w3-container">
+            <h3>FAQ</h3>
+            <div class="quest1 w3-container">
+                <button class="accordion">What is my major?</button>
+                <div class="panel">
+                    <p>I am currently majoring in Computer Science and am interested in the field of artificial intelligence.</p>
+                </div>
+            </div>
+            <div class="quest2 w3-container">
+                <button class="accordion">Why did I choose my current major?</button>
+                <div class="panel">
+                    <p>I at first wanted to learn medical science but my parents were opposed to it since they themselves know how tired this field is. Then I came to think of computer science because I once had a class about programming and I found it fun and exciting. Also, because I think this major is dynamic.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
